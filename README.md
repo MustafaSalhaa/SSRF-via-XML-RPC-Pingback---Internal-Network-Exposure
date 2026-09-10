@@ -99,7 +99,7 @@ Valid internal usernames returned - confirming access to internal mail infrastru
 
 ### 5 - Pingback confirmed from internal server
 
-The internal server at `192.110.165.202` made a direct HTTP pingback to my listener, confirming the server was actively reaching out - not just resolving DNS. Full HTTP headers received including `X-Pingback-Forwarded-For` showing the internal IP.
+The internal server at `192.110.X.X  ` made a direct HTTP pingback to my listener, confirming the server was actively reaching out - not just resolving DNS. Full HTTP headers received including `X-Pingback-Forwarded-For` showing the internal IP.
 
 ---
 
