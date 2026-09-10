@@ -72,7 +72,7 @@ curl -sk http://<INTERNAL-IP>:9100/metrics | grep "sceptre-repo-storage" | grep 
 showmount -e <INTERNAL-IP>
 ```
 
-Result: `/mnt/storage *` — exported to everyone with no restriction.
+Result: `/mnt/storage *` - exported to everyone with no restriction.
 
 **Queried RPC services:**
 ```bash
@@ -83,7 +83,7 @@ Exposed: `portmapper`, `mountd`, `nfs`, `nfs_acl`, `nlockmgr`, full NFS stack ac
 
 ---
 
-### 4 - SMTP server exposed — internal user enumeration
+### 4 - SMTP server exposed - internal user enumeration
 
 Port scan on the server IP revealed SSH (22), SMTP (25), and HTTP (80/443) all open. The SMTP server had `VRFY` enabled, allowing username enumeration:
 
