@@ -29,6 +29,7 @@ curl -sk https://TARGET/blog/xmlrpc.php -d '<?xml version="1.0"?>
   <methodName>system.listMethods</methodName>
 </methodCall>'
 ```
+![Uploading Curl for Pingback.png…]()
 
 `pingback.ping` was available - the method WordPress uses to notify other sites of links. This is the SSRF entry point.
 
